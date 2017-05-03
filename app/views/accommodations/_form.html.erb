@@ -1,0 +1,57 @@
+<%= form_for(accommodation) do |f| %>
+  <% if accommodation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(accommodation.errors.count, "error") %> prohibited this accommodation from being saved:</h2>
+
+      <ul>
+      <% accommodation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :locality_id %>
+    <%= f.select :locality_id, Accommodation.locality_choices   %>
+  </div>
+
+  <div class="field">
+    <%= f.label :street %>
+    <%= f.text_field :street %>
+  </div>
+
+  <div class="field">
+    <%= f.label :house %>
+    <%= f.text_field :house  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :kind %>
+    <%= f.select :kind, Accommodation.kind_choices %>
+  </div>
+
+  <div class="field">
+    <%= f.label :appartement %>
+    <%= f.text_field :appartement %>
+  </div>
+
+  <div class="field">
+    <%= f.label :dog %>
+    <%= f.select :dog, [['Yes', true], ['No', false]] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :host_name %>
+    <%= f.text_area :host_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :religion %>
+    <%= f.text_area :religion %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
