@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<div id="app">
+  {{ message }}
+</div>
+
+<p>
+  <strong>Localities:</strong>
+  <%= @street.locality.name %>
+</p>
+
+<p>
+  <strong>Street:</strong>
+  <%= @street.name %>
+</p>
+
+<p>
+  <strong>Быстрое добавление информации по частным домам:</strong><br>
+  <%= link_to 'Instant add', instant_add_private_create_path(@street) %>
+</p>
+
+
+<% if @street.houses %>
+<table>
+	<thead>
+		<tr>
+			<th>House</th>
+			<th>Форма собственности</th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
+	<tbody>
+		<%= render @street.houses %>
+	</tbody>
+</table>
+<% end %>
+
+<p>
+  <strong>New house:</strong>
+  <%= render 'houses/form_new' %>
+</p>
+
+
+<%= link_to 'Edit', edit_locality_street_path(@street.locality, @street) %> |
+<%= link_to 'Back', locality_path(@street.locality) %>|
+<%= link_to 'Destroy', locality_street_path(@street.locality, @street), method: :delete, data: { confirm: 'Are you sure?' } %> 
+
+<%= javascript_include_tag "hi" %> 

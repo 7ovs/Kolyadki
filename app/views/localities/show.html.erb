@@ -1,9 +1,30 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @locality.name %>
+	<h2>
+		<strong>Город:</strong>
+		<%= @locality.name %>
+	</h2>
 </p>
+
+<% if @locality.streets %>
+<table>
+	<thead>
+		<tr>
+			<th>Street</th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
+	<tbody>
+		<%= render @locality.streets %>
+	</tbody>
+</table>
+<% end %>
+
+<h2>Add street</h2>
+
+<%= render 'streets/form_new' %>
+
 
 <%= link_to 'Edit', edit_locality_path(@locality) %> |
 <%= link_to 'Back', localities_path %>

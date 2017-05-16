@@ -1,0 +1,30 @@
+<%= form_for(
+  @house, url: locality_street_house_path(@house.street.locality, @house.street, @house), 
+  html: {method: "put"}
+) do |f| %>
+  <% if @house.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@house.errors.count, "error") %> prohibited this house from being saved:</h2>
+
+      <ul>
+      <% @house.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :number %>
+    <%= f.text_field :number %>
+  </div>
+
+ <div class="field">
+    <%= f.label :liability %>
+    <%= f.select :liability,  House.kind_choices %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

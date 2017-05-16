@@ -1,0 +1,80 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Locality:</strong>
+  <%= @house.street.locality.name %>
+</p>
+
+<p>
+  <strong>Street:</strong>
+  <%= @house.street.name %>
+</p>
+
+<p>
+  <strong>Форма собственности:</strong>
+  <%= @house.liability	 %>
+</p>
+
+
+<p>
+  <strong>Number:</strong>
+  <%= @house.number %>
+</p>
+
+<% if @house.liability == 'Блок' %>
+	<p>
+	  <strong>Instant add:</strong>
+	  <%= link_to 'Instant add', instant_add_path(@house) %>
+	</p>
+
+
+	<% if @house.appartaments %>
+		<table>
+			<thead>
+				<tr>
+					<th>Квартира</th>
+					<th>Предыдущая жертва</th>
+					<th>Предыдущая дата</th>
+					<th colspan="3"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<%= render @house.appartaments %>
+			</tbody>
+		</table>
+	<% end %>
+	<p>
+		<strong>New appartament:</strong>
+		<%= render 'appartaments/form_new' %>
+	</p>
+
+<% else %>
+
+	<p><strong>Комментарии:</strong></p>
+	<table>
+		<thead>
+			<tr>
+				<th>Offering</th>
+				<th>Comment</th>
+				<th>Date</th>
+				<th>Open</th>
+				<th colspan="3"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<%= render @house.appartaments.first.comments %>
+		</tbody>
+	</table>
+	<p>
+		<strong>New comment:</strong>
+		<%= render 'comments/form_new' %>
+	</p>
+
+<% end %>
+
+
+
+
+<%= link_to 'Edit', edit_locality_street_house_path(@house.street.locality, @house.street, @house) %> |
+<%= link_to 'Back', locality_street_path(@house.street.locality, @house.street) %>|
+<%= link_to 'Destroy', locality_street_house_path(@house.street.locality, @house.street, @house), method: :delete, data: { confirm: 'Are you sure?' } %> 

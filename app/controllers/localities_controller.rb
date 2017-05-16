@@ -10,6 +10,7 @@ class LocalitiesController < ApplicationController
   # GET /localities/1
   # GET /localities/1.json
   def show
+    @street = Street.new
   end
 
   # GET /localities/new

@@ -1,0 +1,7 @@
+<h1>Editing House</h1>
+
+<%= render 'form_edit', house: @house %>
+
+<%= link_to 'Show', locality_street_house_path(@house.street.locality, @house.street, @house) %> |
+<%= link_to 'Back', locality_street_path(@house.street.locality, @house.street) %>|
+<%= link_to 'Destroy', locality_street_house_path(@house.street.locality, @house.street, @house), method: :delete, data: { confirm: 'Are you sure?' } %> 

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Open:</strong>
+  <%= @comment.open %>
+</p>
+
+<p>
+  <strong>Appartament:</strong>
+  <%= @comment.appartament.number %>
+</p>
+
+<p>
+  <strong>Offering:</strong>
+  <%= @comment.offering %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @comment.comment %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @comment.date %>
+</p>
+
+<%= link_to 'Edit', edit_locality_street_house_appartament_comment_path(*@path_to_comment) %> |
+<%= link_to 'Back', locality_street_house_appartament_path(*@path_back) %> |
+<%= link_to 'Destroy', locality_street_house_appartament_comment_path(*@path_to_comment), method: :delete, data: { confirm: 'Are you sure?' } %> 

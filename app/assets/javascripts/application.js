@@ -12,5 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require vue
+//= require vue-router
+//= require vue-resource 
+//= require vue2
+//= require vue-router2

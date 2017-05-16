@@ -1,0 +1,6 @@
+<tr> 
+	<td align="center"><%= appartament.number %></td>
+	<td align="center"><%= appartament.comments.last.offering %></td>
+	<td align="center"><%= appartament.comments.last.date %></td>
+	<td ><%= link_to "Show", locality_street_house_appartament_path(*@path_to_appartament, appartament) %></td>
+</tr>

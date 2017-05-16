@@ -10,26 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170503104047) do
+ActiveRecord::Schema.define(version: 20170509114734) do
 
-  create_table "accommodations", force: :cascade do |t|
-    t.integer  "locality_id"
-    t.string   "street"
-    t.string   "house"
-    t.text     "kind"
-    t.string   "appartement"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.boolean  "dog"
-    t.string   "religion"
-    t.string   "host_name"
-    t.index ["locality_id"], name: "index_accommodations_on_locality_id"
+  create_table "appartaments", force: :cascade do |t|
+    t.string   "number"
+    t.integer  "house_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["house_id"], name: "index_appartaments_on_house_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "appartament_id"
+    t.string   "offering"
+    t.text     "comment"
+    t.date     "date"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "comments"
+    t.boolean  "open"
+    t.index ["appartament_id"], name: "index_comments_on_appartament_id"
+  end
+
+  create_table "houses", force: :cascade do |t|
+    t.string   "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "street_id"
+    t.string   "houses"
+    t.string   "liability"
+    t.index ["street_id"], name: "index_houses_on_street_id"
   end
 
   create_table "localities", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "streets", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "locality_id"
+    t.index ["locality_id"], name: "index_streets_on_locality_id"
   end
 
 end

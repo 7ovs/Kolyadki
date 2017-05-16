@@ -1,0 +1,37 @@
+<%= form_for(@comment, url: locality_street_house_appartament_comments_path(*@path_to_appartament, @comment)) do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this appartament from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.text_field :date, :value => Time.now  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :open %>
+    <%= f.check_box :open %>
+  </div>
+
+  <div class="field">
+    <%= f.label :offering %>
+    <%= f.text_field :offering %>
+  </div>
+
+  <div class="field">
+    <%= f.label :comment %>
+    <%= f.text_area :comment %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,3 +1,3 @@
 class Locality < ApplicationRecord
-	has_many :accomodations
+	has_many :streets
 end

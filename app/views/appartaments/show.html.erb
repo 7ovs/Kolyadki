@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Appartament:</strong>
+  <%= @appartament.number %>
+</p>
+
+<p>
+  <strong>House:</strong>
+  <%= @appartament.house.number %>
+</p>
+
+<% if @appartament.comments %>
+<table>
+	<thead>
+		<tr>
+			<th>Offering</th>
+			<th>Comment</th>
+			<th>Date</th>
+			<th>Open</th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
+	<tbody>
+		<%= render @appartament.comments %>
+	</tbody>
+</table>
+<% end %>
+
+
+<p>
+  <strong>New comment:</strong>
+  <%= render 'comments/form_new' %>
+</p>
+
+<%= link_to 'Edit', edit_locality_street_house_appartament_path(*@path_to_appartament) %> |
+<%= link_to 'Back', locality_street_house_path(*@path_back) %> |
+<%= link_to 'Destroy', locality_street_house_appartament_path(*@path_to_appartament), method: :delete, data: { confirm: 'Are you sure?' } %> 

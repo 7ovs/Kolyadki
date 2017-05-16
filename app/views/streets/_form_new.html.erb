@@ -1,0 +1,16 @@
+<%= form_for([@locality, @locality.streets.build]) do |f| %>
+
+
+  <div>
+     <h2><%= @locality.name %></h2>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

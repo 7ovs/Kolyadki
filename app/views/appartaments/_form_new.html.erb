@@ -1,0 +1,23 @@
+<%= form_for(@appartament, url: locality_street_house_appartaments_path(*@path_to_appartament, @appartament)) do |f| %>
+  <% if @appartament.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@appartament.errors.count, "error") %> prohibited this appartament from being saved:</h2>
+
+      <ul>
+      <% @appartament.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :number %>
+    <%= f.text_field :number %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

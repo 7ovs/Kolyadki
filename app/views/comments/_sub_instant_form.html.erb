@@ -1,0 +1,35 @@
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this appartament from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= label_tag(:number, "Number:") %>
+    <%= text_field_tag(:number)%>
+  </div>
+
+  <div class="field">
+    <%= label_tag(:open, "Open?:") %>
+    <%= check_box_tag(:open) %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :offering, "Offering:" %>
+    <%= text_field_tag :offering %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :comment, "Comment:" %>
+    <%= text_area_tag :comment %>
+  </div>
+  
+  <div class="actions">
+    <%= submit_tag "Add" %>
+  </div>
